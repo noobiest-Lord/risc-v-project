@@ -8,7 +8,7 @@ module gate(A, B, Y); // a function for "and" gate
     // syntax:
     // function name (port list)
     //               (output, inputs)
-    and (Y, A, B);
+    and (Y, A, B); // output comes first
 endmodule
 
 // create a testbench.v

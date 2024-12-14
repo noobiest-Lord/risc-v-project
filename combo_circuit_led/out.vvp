@@ -1,0 +1,74 @@
+#! /opt/local/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/opt/local/lib/ivl/system.vpi";
+:vpi_module "/opt/local/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/local/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/local/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/local/lib/ivl/va_math.vpi";
+S_0x140e06180 .scope module, "tb" "tb" 2 1;
+ .timescale 0 0;
+v0x140e16960_0 .net "L", 0 0, L_0x140e16e10;  1 drivers
+v0x140e16a00_0 .var "P", 0 0;
+v0x140e16ab0_0 .var "S", 0 0;
+v0x140e16b80_0 .var "V", 0 0;
+S_0x140e062f0 .scope module, "dut" "led" 2 5, 3 1 0, S_0x140e06180;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "L";
+    .port_info 1 /INPUT 1 "S";
+    .port_info 2 /INPUT 1 "P";
+    .port_info 3 /INPUT 1 "V";
+L_0x140e16c30 .functor NOT 1, v0x140e16ab0_0, C4<0>, C4<0>, C4<0>;
+L_0x140e16d00 .functor AND 1, L_0x140e16c30, v0x140e16a00_0, C4<1>, C4<1>;
+L_0x140e16e10 .functor AND 1, L_0x140e16d00, v0x140e16b80_0, C4<1>, C4<1>;
+v0x140e06510_0 .net "L", 0 0, L_0x140e16e10;  alias, 1 drivers
+v0x140e16590_0 .net "P", 0 0, v0x140e16a00_0;  1 drivers
+v0x140e16630_0 .net "S", 0 0, v0x140e16ab0_0;  1 drivers
+v0x140e166e0_0 .net "V", 0 0, v0x140e16b80_0;  1 drivers
+v0x140e16780_0 .net *"_ivl_0", 0 0, L_0x140e16c30;  1 drivers
+v0x140e16870_0 .net *"_ivl_2", 0 0, L_0x140e16d00;  1 drivers
+    .scope S_0x140e06180;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x140e16ab0_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x140e16a00_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x140e16b80_0, 0;
+    %delay 100, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x140e16ab0_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x140e16a00_0, 0;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v0x140e16b80_0, 0;
+    %delay 100, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x140e16ab0_0, 0;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v0x140e16a00_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x140e16b80_0, 0;
+    %delay 100, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x140e16ab0_0, 0;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v0x140e16a00_0, 0;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v0x140e16b80_0, 0;
+    %delay 100, 0;
+    %end;
+    .thread T_0;
+    .scope S_0x140e06180;
+T_1 ;
+    %vpi_call 2 35 "$dumpfile", "dump.vcd" {0 0 0};
+    %vpi_call 2 36 "$dumpvars", 32'sb00000000000000000000000000000000 {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "testbench.v";
+    "design.v";
