@@ -1,0 +1,85 @@
+#! /opt/local/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/opt/local/lib/ivl/system.vpi";
+:vpi_module "/opt/local/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/local/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/local/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/local/lib/ivl/va_math.vpi";
+S_0x155804730 .scope module, "tb" "tb" 2 1;
+ .timescale 0 0;
+v0x15581ca40_0 .var "A", 1 0;
+v0x15581cad0_0 .var "E", 0 0;
+v0x15581cb60_0 .net "Y_0", 0 0, L_0x15581cfc0;  1 drivers
+v0x15581cc30_0 .net "Y_1", 0 0, L_0x15581d1d0;  1 drivers
+v0x15581cce0_0 .net "Y_2", 0 0, L_0x15581d3e0;  1 drivers
+v0x15581cdb0_0 .net "Y_3", 0 0, L_0x15581d610;  1 drivers
+S_0x1558048a0 .scope module, "dut" "Decoder" 2 6, 3 1 0, S_0x155804730;
+ .timescale 0 0;
+    .port_info 0 /INPUT 2 "A";
+    .port_info 1 /OUTPUT 1 "Y_0";
+    .port_info 2 /OUTPUT 1 "Y_1";
+    .port_info 3 /OUTPUT 1 "Y_2";
+    .port_info 4 /OUTPUT 1 "Y_3";
+    .port_info 5 /INPUT 1 "E";
+L_0x15581cfc0 .functor AND 1, v0x15581cad0_0, L_0x15581ce80, C4<1>, C4<1>;
+L_0x15581d1d0 .functor AND 1, v0x15581cad0_0, L_0x15581d0f0, C4<1>, C4<1>;
+L_0x15581d3e0 .functor AND 1, v0x15581cad0_0, L_0x15581d2c0, C4<1>, C4<1>;
+L_0x15581d610 .functor AND 1, v0x15581cad0_0, L_0x15581d510, C4<1>, C4<1>;
+v0x15580ab60_0 .net "A", 1 0, v0x15581ca40_0;  1 drivers
+v0x15581c0c0_0 .net "E", 0 0, v0x15581cad0_0;  1 drivers
+v0x15581c160_0 .net "Y_0", 0 0, L_0x15581cfc0;  alias, 1 drivers
+v0x15581c1f0_0 .net "Y_1", 0 0, L_0x15581d1d0;  alias, 1 drivers
+v0x15581c290_0 .net "Y_2", 0 0, L_0x15581d3e0;  alias, 1 drivers
+v0x15581c370_0 .net "Y_3", 0 0, L_0x15581d610;  alias, 1 drivers
+L_0x148068010 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
+v0x15581c410_0 .net/2u *"_ivl_0", 1 0, L_0x148068010;  1 drivers
+L_0x1480680a0 .functor BUFT 1, C4<10>, C4<0>, C4<0>, C4<0>;
+v0x15581c4c0_0 .net/2u *"_ivl_12", 1 0, L_0x1480680a0;  1 drivers
+v0x15581c570_0 .net *"_ivl_14", 0 0, L_0x15581d2c0;  1 drivers
+L_0x1480680e8 .functor BUFT 1, C4<11>, C4<0>, C4<0>, C4<0>;
+v0x15581c680_0 .net/2u *"_ivl_18", 1 0, L_0x1480680e8;  1 drivers
+v0x15581c720_0 .net *"_ivl_2", 0 0, L_0x15581ce80;  1 drivers
+v0x15581c7c0_0 .net *"_ivl_20", 0 0, L_0x15581d510;  1 drivers
+L_0x148068058 .functor BUFT 1, C4<01>, C4<0>, C4<0>, C4<0>;
+v0x15581c860_0 .net/2u *"_ivl_6", 1 0, L_0x148068058;  1 drivers
+v0x15581c910_0 .net *"_ivl_8", 0 0, L_0x15581d0f0;  1 drivers
+L_0x15581ce80 .cmp/eq 2, v0x15581ca40_0, L_0x148068010;
+L_0x15581d0f0 .cmp/eq 2, v0x15581ca40_0, L_0x148068058;
+L_0x15581d2c0 .cmp/eq 2, v0x15581ca40_0, L_0x1480680a0;
+L_0x15581d510 .cmp/eq 2, v0x15581ca40_0, L_0x1480680e8;
+    .scope S_0x155804730;
+T_0 ;
+    %pushi/vec4 1, 0, 2;
+    %assign/vec4 v0x15581ca40_0, 0;
+    %delay 100, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x15581cad0_0, 0;
+    %delay 100, 0;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v0x15581cad0_0, 0;
+    %delay 100, 0;
+    %pushi/vec4 3, 0, 2;
+    %assign/vec4 v0x15581ca40_0, 0;
+    %delay 100, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x15581cad0_0, 0;
+    %delay 100, 0;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v0x15581cad0_0, 0;
+    %delay 100, 0;
+    %end;
+    .thread T_0;
+    .scope S_0x155804730;
+T_1 ;
+    %vpi_call 2 34 "$dumpfile", "dump.vcd" {0 0 0};
+    %vpi_call 2 35 "$dumpvars", 32'sb00000000000000000000000000000000 {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "testbench.v";
+    "decoder.v";

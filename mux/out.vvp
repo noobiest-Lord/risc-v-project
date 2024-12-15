@@ -1,0 +1,57 @@
+#! /opt/local/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/opt/local/lib/ivl/system.vpi";
+:vpi_module "/opt/local/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/local/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/local/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/local/lib/ivl/va_math.vpi";
+S_0x1348053a0 .scope module, "tb" "tb" 2 1;
+ .timescale 0 0;
+v0x133e0ae50_0 .var "A", 1 0;
+v0x133e0af20_0 .var "B", 1 0;
+v0x133e0afd0_0 .var "S", 0 0;
+v0x133e0b0a0_0 .net "Y", 1 0, L_0x133e0b2a0;  1 drivers
+S_0x134805510 .scope module, "dut" "mux" 2 8, 3 3 0, S_0x1348053a0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 2 "A";
+    .port_info 1 /INPUT 2 "B";
+    .port_info 2 /INPUT 1 "S";
+    .port_info 3 /OUTPUT 2 "Y";
+L_0x108008010 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+L_0x133e0b170 .functor XNOR 1, v0x133e0afd0_0, L_0x108008010, C4<0>, C4<0>;
+v0x1348076a0_0 .net "A", 1 0, v0x133e0ae50_0;  1 drivers
+v0x133e0aa60_0 .net "B", 1 0, v0x133e0af20_0;  1 drivers
+v0x133e0ab20_0 .net "S", 0 0, v0x133e0afd0_0;  1 drivers
+v0x133e0abd0_0 .net "Y", 1 0, L_0x133e0b2a0;  alias, 1 drivers
+v0x133e0ac80_0 .net/2u *"_ivl_0", 0 0, L_0x108008010;  1 drivers
+v0x133e0ad70_0 .net *"_ivl_2", 0 0, L_0x133e0b170;  1 drivers
+L_0x133e0b2a0 .functor MUXZ 2, v0x133e0af20_0, v0x133e0ae50_0, L_0x133e0b170, C4<>;
+    .scope S_0x1348053a0;
+T_0 ;
+    %pushi/vec4 1, 0, 2;
+    %assign/vec4 v0x133e0ae50_0, 0;
+    %pushi/vec4 3, 0, 2;
+    %assign/vec4 v0x133e0af20_0, 0;
+    %delay 100, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x133e0afd0_0, 0;
+    %delay 100, 0;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v0x133e0afd0_0, 0;
+    %delay 100, 0;
+    %end;
+    .thread T_0;
+    .scope S_0x1348053a0;
+T_1 ;
+    %vpi_call 2 27 "$dumpfile", "dump.vcd" {0 0 0};
+    %vpi_call 2 28 "$dumpvars", 32'sb00000000000000000000000000000000 {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "testbench.v";
+    "design.v";
