@@ -1,0 +1,18 @@
+In design:
+    Use reg for values stored in sequential logic (flip-flops, registers)
+    Use wire for combinational logic
+In testbench:
+    Use reg for inputs (because you're driving them)
+    Use wire for outputs (because you're observing them)
+
+to run:
+    run iverilog -o (file name u want.vvp) testbench.v design.v
+    vvp file name u want.vvp
+    run surfer
+
+for multiple bits: ([max bit: min bit])
+
+if you add always to a testbench, it will keep running. to stop it, add $finish to your algorithm
+
+
+
