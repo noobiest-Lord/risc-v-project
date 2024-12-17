@@ -14,5 +14,8 @@ for multiple bits: ([max bit: min bit])
 
 if you add always to a testbench, it will keep running. to stop it, add $finish to your algorithm
 
+initital block only works once!, while always and assign always keep running
+
+if output variable is inside an always or initial block, it would be a output reg
 
 
