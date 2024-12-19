@@ -18,4 +18,9 @@ initital block only works once!, while always and assign always keep running
 
 if output variable is inside an always or initial block, it would be a output reg
 
+to concatonate = {a, b}, {4{a}}
 
+for assign use =
+for always and include use either <= or = depending
+
+in testbench, always use = for initial begin
