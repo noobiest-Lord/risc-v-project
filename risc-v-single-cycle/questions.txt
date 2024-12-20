@@ -1,0 +1,6 @@
+https://github.com/merldsu/RISCV_Single_Cycle_Core/blob/main/doc/RISCV_Single_Cycle_Microarchitecture.pdf
+
+
+page 5:
+zero_extension (101)
+
