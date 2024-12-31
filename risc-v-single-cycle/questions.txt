@@ -4,3 +4,4 @@ https://github.com/merldsu/RISCV_Single_Cycle_Core/blob/main/doc/RISCV_Single_Cy
 page 5:
 zero_extension (101)
 
+how do we store negative numbers in the registers and in i-type?
